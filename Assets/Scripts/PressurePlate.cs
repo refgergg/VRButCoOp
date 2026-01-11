@@ -10,13 +10,16 @@ public class PressurePlate : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!other.CompareTag("Player") && !other.CompareTag("Box"))
-            return;
+        if (!other.gameObject.CompareTag("Player") && !other.gameObject.CompareTag("Box"))
+        return;
 
         objectsOnPlate++;
 
+        print("pressed by " + other.gameObject.name);
+
         if (objectsOnPlate == 1)
         {
+            print("pressed by " + other.gameObject.name);
             onPressed.Invoke();
         }
     }
